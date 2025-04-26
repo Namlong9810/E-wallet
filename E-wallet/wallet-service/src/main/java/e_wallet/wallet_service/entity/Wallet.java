@@ -1,9 +1,7 @@
 package e_wallet.wallet_service.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -15,7 +13,9 @@ import java.util.UUID;
 @Table(name = "wallet")
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+@Getter
+@Setter
+@Builder
 public class Wallet {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -35,4 +35,9 @@ public class Wallet {
     @UpdateTimestamp
     @Column(name = "updated_at")
     Instant updated_at;
+
+    Wallet(UUID user_id, BigDecimal balance){
+        this.user_id = user_id;
+        this.balance = balance;
+    }
 }
