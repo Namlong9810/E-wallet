@@ -20,10 +20,10 @@ public class Wallet {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "wallet_id", unique = true)
-    UUID wallet_id;
+    UUID walletId;
 
-    @Column(name = "user_id", nullable = false, unique = true)
-    UUID user_id;
+    @Column(name = "user_id", nullable = false)
+    UUID userId;
 
     @Column(name = "balance")
     BigDecimal balance;
@@ -36,8 +36,8 @@ public class Wallet {
     @Column(name = "updated_at")
     Instant updated_at;
 
-    Wallet(UUID user_id, BigDecimal balance){
-        this.user_id = user_id;
+    Wallet(UUID userId, BigDecimal balance){
+        this.userId = userId;
         this.balance = balance;
     }
 }

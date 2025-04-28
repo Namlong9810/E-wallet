@@ -13,6 +13,6 @@ import java.util.UUID;
 @Data
 @Builder
 public class WalletReq {
-    private UUID user_id;
+    private UUID wallet_id;
     private BigDecimal amount;
 }

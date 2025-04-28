@@ -2,6 +2,7 @@ package e_wallet.transaction_service.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
@@ -15,17 +16,18 @@ import java.util.UUID;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "transaction_id", unique = true, nullable = false)
-    private UUID transaction_id;
+    private UUID transactionId;
 
     @Column(name = "user_id", unique = true, nullable = false)
-    private UUID user_id;
+    private UUID userId;
 
     @Column(name = "wallet_id", unique = true, nullable = false)
-    private UUID wallet_id;
+    private UUID walletId;
 
     @Column(name = "amount")
     private BigDecimal amount;
