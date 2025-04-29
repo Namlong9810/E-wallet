@@ -1,6 +1,7 @@
 package e_wallet.transaction_service.service;
 
 import e_wallet.transaction_service.dto.req.TransactionReq;
+import e_wallet.transaction_service.dto.res.WalletDTO;
 import e_wallet.transaction_service.entity.Transaction;
 import e_wallet.transaction_service.entity.TransactionType;
 import e_wallet.transaction_service.repository.TransactionRepository;

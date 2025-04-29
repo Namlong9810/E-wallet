@@ -13,7 +13,7 @@ public class WalletController {
 
     private final WalletService walletService;
 
-    @GetMapping("create")
+    @PostMapping("create")
     public void create(@RequestBody CreateWalletDTO createWalletDTO){
         walletService.createWallet(createWalletDTO);
     }

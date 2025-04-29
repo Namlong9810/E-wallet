@@ -12,7 +12,7 @@ import java.time.Instant;
 import java.util.UUID;
 
 @Entity
-@Table(name = "Transaction")
+@Table(name = "wallet_transactions")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -23,10 +23,10 @@ public class Transaction {
     @Column(name = "transaction_id", unique = true, nullable = false)
     private UUID transactionId;
 
-    @Column(name = "user_id", unique = true, nullable = false)
+    @Column(name = "user_id", unique = false, nullable = false)
     private UUID userId;
 
-    @Column(name = "wallet_id", unique = true, nullable = false)
+    @Column(name = "wallet_id", unique = false, nullable = false)
     private UUID walletId;
 
     @Column(name = "amount")
@@ -37,6 +37,7 @@ public class Transaction {
     private Instant transaction_date;
 
     @Column(name = "transaction_type")
+    @Enumerated(EnumType.STRING)
     private TransactionType transaction_type;
 
     @Column(name = "ip_address")
