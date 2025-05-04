@@ -1,10 +1,11 @@
 package e_wallet.wallet_service.service;
 
 import e_wallet.wallet_service.repository.WalletRepository;
-import e_wallet.wallet_service.dto.req.CreateWalletDTO;
-import e_wallet.wallet_service.entity.Wallet;
 import lombok.AllArgsConstructor;
 import org.apache.coyote.BadRequestException;
+import org.example.dto.req.CreateWalletDTO;
+import org.example.dto.res.WalletDTO;
+import org.example.entity.Wallet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,7 +26,7 @@ public class WalletService {
         walletRepository.save(wallet);
     }
 
-    public Wallet deposit(UUID wallet_id, BigDecimal amount) {
+    public WalletDTO deposit(UUID wallet_id, BigDecimal amount) {
         Wallet wallet = null;
         try {wallet = walletRepository.findById(wallet_id)
                     .orElseThrow(() -> new BadRequestException("Not found"));
@@ -34,10 +35,17 @@ public class WalletService {
             throw new RuntimeException(e);
         }
 
-        return walletRepository.save(wallet);
+        Wallet updatedWallet =  walletRepository.save(wallet);
+
+        WalletDTO dto = new WalletDTO();
+        dto.setWalletId(updatedWallet.getWalletId());
+        dto.setUserId(updatedWallet.getUserId());
+        dto.setBalance(updatedWallet.getBalance());
+
+        return dto;
     }
 
-    public Wallet withdraw(UUID wallet_id, BigDecimal amount){
+    public WalletDTO withdraw(UUID wallet_id, BigDecimal amount){
         Wallet wallet = null;
         try {
             wallet = walletRepository.findById(wallet_id)
@@ -52,6 +60,13 @@ public class WalletService {
             throw new RuntimeException(e);
         }
 
-        return walletRepository.save(wallet);
+        Wallet updatedWallet =  walletRepository.save(wallet);
+
+        WalletDTO dto = new WalletDTO();
+        dto.setWalletId(updatedWallet.getWalletId());
+        dto.setUserId(updatedWallet.getUserId());
+        dto.setBalance(updatedWallet.getBalance());
+
+        return dto;
     }
 }

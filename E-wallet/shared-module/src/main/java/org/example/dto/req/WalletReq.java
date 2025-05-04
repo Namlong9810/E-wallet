@@ -1,4 +1,5 @@
-package e_wallet.wallet_service.dto.req;
+package org.example.dto.req;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

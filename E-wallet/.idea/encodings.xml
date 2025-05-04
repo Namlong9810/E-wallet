@@ -4,6 +4,8 @@
     <file url="file://$PROJECT_DIR$/auth-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/fraud-detection-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/notification-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shared-module/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shared-module/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/transaction-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/user-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/wallet-service/src/main/java" charset="UTF-8" />

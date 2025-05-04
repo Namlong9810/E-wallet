@@ -1,4 +1,4 @@
-package e_wallet.wallet_service.entity;
+package org.example.entity;
 
 import jakarta.persistence.*;
 import lombok.*;

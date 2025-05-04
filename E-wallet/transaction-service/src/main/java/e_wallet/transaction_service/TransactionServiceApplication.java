@@ -7,7 +7,9 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-@SpringBootApplication
+//"e_wallet.fraud_detection_service.fraud_service"
+@SpringBootApplication(scanBasePackages = {"e_wallet.notification_service", "org.example.config"})
+@EntityScan(basePackages = "org.example.entity")
 public class TransactionServiceApplication {
 
 	public static void main(String[] args) {

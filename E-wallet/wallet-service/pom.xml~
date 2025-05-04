@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>e-wallet</groupId>
-	<artifactId>transaction-service</artifactId>
+	<artifactId>wallet-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>transaction-service</name>
+	<name>wallet-service</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
@@ -32,6 +32,33 @@
 	</properties>
 	<dependencies>
 		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.ai</groupId>
+			<artifactId>spring-ai-postgresml-spring-boot-starter</artifactId>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<version>1.18.36</version>
@@ -39,60 +66,24 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-			<version>3.4.4</version> <!-- Thêm version cho spring-boot-starter-data-jpa -->
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-jdbc</artifactId>
-			<version>3.4.4</version> <!-- Thêm version cho spring-boot-starter-jdbc -->
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
-			<version>3.4.4</version> <!-- Thêm version cho spring-boot-starter-security -->
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-			<version>3.4.4</version> <!-- Thêm version cho spring-boot-starter-web -->
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.ai</groupId>
-			<artifactId>spring-ai-postgresml-spring-boot-starter</artifactId>
-			<version>1.0.0-M6</version> <!-- Thêm version cho spring-ai-postgresml-spring-boot-starter -->
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.kafka</groupId>
-			<artifactId>spring-kafka</artifactId>
-			<version>3.0.0</version> <!-- Thêm version cho spring-kafka -->
+			<artifactId>spring-kafka-test</artifactId>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.postgresql</groupId>
-			<artifactId>postgresql</artifactId>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<version>3.4.4</version> <!-- Thêm version cho spring-boot-starter-test -->
-		</dependency>
-		<dependency>
-			<groupId>org.example</groupId>
+		<dependency><groupId>org.example</groupId>
 			<artifactId>shared-module</artifactId>
 			<version>1.0-SNAPSHOT</version>
 		</dependency>
-		<dependency>
-			<groupId>e-wallet</groupId>
-			<artifactId>notification-service</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>e-wallet</groupId>
-			<artifactId>fraud-detection-service</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
 	</dependencies>
-
 	<dependencyManagement>
 		<dependencies>
 			<dependency>

@@ -1,4 +1,4 @@
-package e_wallet.transaction_service.entity;
+package org.example.entity;
 
 public enum TransactionType {
     CREDIT,

@@ -1,4 +1,4 @@
-package e_wallet.transaction_service.dto.res;
+package org.example.dto.res;
 
 import jakarta.persistence.*;
 import lombok.*;

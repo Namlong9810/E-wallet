@@ -1,10 +1,11 @@
 package e_wallet.transaction_service.controller;
 
-import e_wallet.transaction_service.dto.req.TransactionReq;
-import e_wallet.transaction_service.entity.Transaction;
+
 import e_wallet.transaction_service.service.TransactionService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
+import org.example.dto.req.TransactionReq;
+import org.example.entity.Transaction;
 import org.springframework.web.bind.annotation.*;
 
 

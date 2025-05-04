@@ -1,9 +1,10 @@
 package e_wallet.wallet_service.controller;
 
 import e_wallet.wallet_service.service.WalletService;
-import e_wallet.wallet_service.dto.req.CreateWalletDTO;
-import e_wallet.wallet_service.dto.req.WalletReq;
 import lombok.RequiredArgsConstructor;
+import org.example.dto.req.CreateWalletDTO;
+import org.example.dto.req.WalletReq;
+import org.example.dto.res.WalletDTO;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -19,12 +20,12 @@ public class WalletController {
     }
 
     @PutMapping("deposit")
-    public void deposit(@RequestBody WalletReq walletReq){
-        walletService.deposit(walletReq.getWallet_id(), walletReq.getAmount());
+    public WalletDTO deposit(@RequestBody WalletReq walletReq){
+        return walletService.deposit(walletReq.getWallet_id(), walletReq.getAmount());
     }
 
     @PutMapping("withdraw")
-    public void withdraw(@RequestBody WalletReq walletReq){
-        walletService.withdraw(walletReq.getWallet_id(), walletReq.getAmount());
+    public WalletDTO withdraw(@RequestBody WalletReq walletReq){
+        return walletService.withdraw(walletReq.getWallet_id(), walletReq.getAmount());
     }
 }
