@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@RequestMapping("transaction")
+@RequestMapping("user/transaction")
 @RequiredArgsConstructor
 public class TransactionController {
     private final TransactionService transactionService;
@@ -18,5 +18,11 @@ public class TransactionController {
     @PostMapping("create")
     public Transaction createTransaction(@RequestBody TransactionReq transactionReq, HttpServletRequest httpServletRequest){
         return transactionService.createTransaction(transactionReq, httpServletRequest);
+    }
+
+
+    @GetMapping("infor")
+    public Transaction getInforTransaction(@RequestBody TransactionReq transactionReq){
+        return transactionService.getInforTransaction(transactionReq.getSender_id());
     }
 }

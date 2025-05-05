@@ -28,7 +28,7 @@ public class TransactionService {
     private final RestTemplate restTemplate;
     private final TransactionRepository transactionRepository;
 //    private final FraudService fraudService;
-//    private final NotificationService notificationService;
+    private final NotificationService notificationService;
 
     @Transactional
     public Transaction createTransaction(TransactionReq transactionReq, HttpServletRequest httpServletRequest) {
@@ -70,6 +70,10 @@ public class TransactionService {
 //        }
 
         return transactionRepository.save(transaction);
+    }
+
+    public Transaction getInforTransaction(UUID sender_id){
+        return transactionRepository.findById(sender_id).orElseThrow(()-> new IllegalArgumentException("Không tìm thấy mã ví"));
     }
 
     private void validateTransfer(TransactionReq transactionReq) {
