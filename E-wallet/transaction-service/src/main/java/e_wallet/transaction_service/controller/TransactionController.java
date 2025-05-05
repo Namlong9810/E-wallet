@@ -8,6 +8,8 @@ import org.example.dto.req.TransactionReq;
 import org.example.entity.Transaction;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 @RestController
 @RequestMapping("user/transaction")
@@ -24,5 +26,10 @@ public class TransactionController {
     @GetMapping("infor")
     public Transaction getInforTransaction(@RequestBody TransactionReq transactionReq){
         return transactionService.getInforTransaction(transactionReq.getSender_id());
+    }
+
+    @GetMapping("list")
+    public List<Transaction> getListTransactionById(@RequestBody TransactionReq transactionReq){
+        return transactionService.getListTransactionById(transactionReq.getSender_id());
     }
 }

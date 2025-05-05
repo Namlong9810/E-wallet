@@ -19,6 +19,7 @@ import org.springframework.web.client.RestTemplate;
 import java.math.BigDecimal;
 import java.time.Duration;
 import java.time.Instant;
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -32,6 +33,7 @@ public class TransactionService {
 
     @Transactional
     public Transaction createTransaction(TransactionReq transactionReq, HttpServletRequest httpServletRequest) {
+        Instant start = Instant.now();
         this.validateTransfer(transactionReq);
 
         // Gọi API ví để rút tiền
@@ -48,6 +50,7 @@ public class TransactionService {
         Instant periodTime = Instant.now().minus(Duration.ofMinutes(5));
         Integer frequency = transactionRepository.countTransactionIn5minByUserId(sender.getUserId(), periodTime);
 
+        BigDecimal transactionDuration = BigDecimal.valueOf(Duration.between(start, Instant.now()).toSecondsPart());
         // Tạo bản ghi transaction
         Transaction transaction = Transaction.builder()
                 .userId(sender.getUserId())
@@ -56,6 +59,7 @@ public class TransactionService {
                 .transaction_type(TransactionType.DEBIT)
                 .ip_address(clientIP)
                 .frequency(frequency)
+                .transaction_duration(transactionDuration)
                 .balance(sender.getBalance())
                 .previous_transaction_date(previousTransactionDate)
                 .build();
@@ -74,6 +78,10 @@ public class TransactionService {
 
     public Transaction getInforTransaction(UUID sender_id){
         return transactionRepository.findById(sender_id).orElseThrow(()-> new IllegalArgumentException("Không tìm thấy mã ví"));
+    }
+
+    public List<Transaction> getListTransactionById(UUID sender_id){
+        return transactionRepository.findAllById(sender_id);
     }
 
     private void validateTransfer(TransactionReq transactionReq) {

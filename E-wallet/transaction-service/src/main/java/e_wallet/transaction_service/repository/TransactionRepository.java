@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.time.Instant;
+import java.util.List;
 import java.util.UUID;
 
 public interface TransactionRepository extends JpaRepository<Transaction, UUID> {
@@ -18,4 +19,6 @@ public interface TransactionRepository extends JpaRepository<Transaction, UUID> 
             " WHERE t.userId = :userId " +
             " AND t.transaction_date >= :time ")
     Integer countTransactionIn5minByUserId(@Param("userId") UUID userId, @Param("time") Instant period);
+
+    List<Transaction> findAllByWalletId(UUID sender_id);
 }
