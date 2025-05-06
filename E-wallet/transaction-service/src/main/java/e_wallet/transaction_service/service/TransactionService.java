@@ -4,13 +4,16 @@ import e_wallet.fraud_detection_service.fraud_service.FraudService;
 import e_wallet.notification_service.NotificationService;
 import e_wallet.transaction_service.exception.FraudDetectedException;
 import e_wallet.transaction_service.repository.TransactionRepository;
+import e_wallet.wallet_service.repository.WalletRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.example.dto.req.TransactionReq;
 import org.example.dto.req.WalletReq;
 import org.example.dto.res.WalletDTO;
+import org.example.dto.res.common.ResponseObject;
 import org.example.entity.Transaction;
 import org.example.entity.TransactionType;
+import org.example.entity.Wallet;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,6 +22,7 @@ import org.springframework.web.client.RestTemplate;
 import java.math.BigDecimal;
 import java.time.Duration;
 import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -28,19 +32,21 @@ public class TransactionService {
 
     private final RestTemplate restTemplate;
     private final TransactionRepository transactionRepository;
-//    private final FraudService fraudService;
+    private final WalletRepository walletRepository;
+    private final FraudService fraudService;
     private final NotificationService notificationService;
 
     @Transactional
-    public Transaction createTransaction(TransactionReq transactionReq, HttpServletRequest httpServletRequest) {
+    public ResponseObject<Transaction> createTransaction(TransactionReq transactionReq, HttpServletRequest httpServletRequest) {
         Instant start = Instant.now();
         this.validateTransfer(transactionReq);
 
-        // Gọi API ví để rút tiền
-        WalletDTO sender = withdraw(transactionReq.getSender_id(), transactionReq.getAmount());
+        // Lấy thông tin ví sender, receiver
+        Wallet sender = walletRepository.findById(transactionReq.getSender_id()).orElseThrow(()-> new IllegalArgumentException("Không tìm thấy " +
+                "senderId"));
 
-        // Gọi API ví để nạp tiền
-        deposit(transactionReq.getReceiver_id(), transactionReq.getAmount());
+        walletRepository.findById(transactionReq.getReceiver_id()).orElseThrow(() -> new IllegalArgumentException("Không tìm " +
+                "thấy receiverId"));
 
         // Lấy địa chỉ IP
         String clientIP = getClientIp(httpServletRequest);
@@ -56,6 +62,7 @@ public class TransactionService {
                 .userId(sender.getUserId())
                 .walletId(sender.getWalletId())
                 .amount(transactionReq.getAmount())
+                .transaction_date(Instant.now())
                 .transaction_type(TransactionType.DEBIT)
                 .ip_address(clientIP)
                 .frequency(frequency)
@@ -64,16 +71,26 @@ public class TransactionService {
                 .previous_transaction_date(previousTransactionDate)
                 .build();
 
-//        boolean isFraud = fraudService.checkForFraud(transaction);
-//
-//        //Kiểm trả kết quả trả về
-//        if (isFraud) {
-//            notificationService.sendNotification(sender.getUserId().toString(), transaction.getTransactionId().toString());
-//
-//            throw new FraudDetectedException("Giao dịch bị phát hiện là gian lận.");
-//        }
+//        boolean isFraud = clientIP != null;
+        Transaction saved = transactionRepository.save(transaction);
+        boolean isFraud = fraudService.checkForFraud(transaction);
+        //Kiểm trả kết quả trả về
+        if (isFraud) {
+            String message = notificationService.sendNotification(sender.getUserId().toString(), transaction.getTransactionId().toString());
+            throw new FraudDetectedException(message);
+        }
 
-        return transactionRepository.save(transaction);
+        // Gọi API ví để rút tiền
+        WalletDTO senderResult = withdraw(transactionReq.getSender_id(), transactionReq.getAmount());
+
+        // Gọi API ví để nạp tiền
+        WalletDTO receiverResult = deposit(transactionReq.getReceiver_id(), transactionReq.getAmount());
+
+        if(senderResult == null || receiverResult == null){
+            throw new IllegalArgumentException("Có lỗi xảy ra trong quá trình giao dịch!!");
+        }
+
+        return new ResponseObject<Transaction>("Khởi tạo giao dịch thành công", HttpStatus.OK.value(), LocalDateTime.now());
     }
 
     public Transaction getInforTransaction(UUID sender_id){
@@ -81,7 +98,7 @@ public class TransactionService {
     }
 
     public List<Transaction> getListTransactionById(UUID sender_id){
-        return transactionRepository.findAllById(sender_id);
+        return transactionRepository.findAllByWalletId(sender_id);
     }
 
     private void validateTransfer(TransactionReq transactionReq) {

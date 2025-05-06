@@ -1,5 +1,7 @@
 package e_wallet.fraud_detection_service.fraud_service;
 
+import org.example.dto.req.FraudRequest;
+import org.example.dto.res.FraudResponse;
 import org.example.entity.Transaction;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -9,7 +11,7 @@ import org.springframework.beans.factory.annotation.Value;
 @Service
 public class FraudService {
 
-    @Value("${fraud.api.url}") // URL API Python (Flask)
+    @Value("http://10.242.30.53:5000") // URL API Python (Flask)
     private String fraudApiUrl;
 
     private final RestTemplate restTemplate;
@@ -21,8 +23,18 @@ public class FraudService {
     public boolean checkForFraud(Transaction transaction) {
         // Chuyển đổi dữ liệu của transaction thành request payload
         FraudRequest request = new FraudRequest();
-        request.setAmount(transaction.getAmount().doubleValue());
+        request.setTransactionId(transaction.getTransactionId());
+        request.setUserId(transaction.getUserId());
+        request.setWalletId(transaction.getWalletId());
+        request.setAmount(transaction.getAmount());
+        request.setTransaction_date(transaction.getTransaction_date());
+        request.setTransaction_type(transaction.getTransaction_type());
+        request.setIp_address(transaction.getIp_address());
         request.setFrequency(transaction.getFrequency());
+        request.setTransaction_duration(transaction.getTransaction_duration());
+        request.setPrevious_transaction_date(transaction.getPrevious_transaction_date());
+        request.setBalance(transaction.getBalance());
+
         // Thêm các đặc trưng khác nếu cần từ transaction
 
         // Gửi dữ liệu đến API Python
@@ -47,27 +59,6 @@ public class FraudService {
             // Log exception and handle errors (e.g., network issues, timeout, etc.)
             throw new RuntimeException("Error calling fraud detection service", e);
         }
-    }
-
-    // Lớp Request (dữ liệu gửi đi)
-    public static class FraudRequest {
-        private double amount;
-        private int frequency;
-
-        // Getter và setter
-        public double getAmount() { return amount; }
-        public void setAmount(double amount) { this.amount = amount; }
-
-        public int getFrequency() { return frequency; }
-        public void setFrequency(int frequency) { this.frequency = frequency; }
-    }
-
-    // Lớp Response (dữ liệu nhận từ API Python)
-    public static class FraudResponse {
-        private int isFraud;
-
-        public int getIsFraud() { return isFraud; }
-        public void setIsFraud(int isFraud) { this.isFraud = isFraud; }
     }
 }
 

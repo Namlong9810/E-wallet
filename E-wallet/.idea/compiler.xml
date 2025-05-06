@@ -29,8 +29,8 @@
         <module name="e-wallet" />
         <module name="transaction-service" />
         <module name="user-service" />
-        <module name="wallet-service" />
         <module name="notification-service" />
+        <module name="wallet-service" />
       </profile>
     </annotationProcessing>
   </component>

@@ -90,6 +90,12 @@
 			<artifactId>fraud-detection-service</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+		<dependency>
+			<groupId>e-wallet</groupId>
+			<artifactId>wallet-service</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
 	</dependencies>
 
 	<dependencyManagement>

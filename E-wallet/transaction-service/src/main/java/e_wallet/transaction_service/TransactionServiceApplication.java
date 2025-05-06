@@ -8,7 +8,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 //"e_wallet.fraud_detection_service.fraud_service"
-@SpringBootApplication(scanBasePackages = {"e_wallet.notification_service", "org.example.config", "e_wallet.transaction_service"})
+@SpringBootApplication(scanBasePackages = {"e_wallet.notification_service", "org.example.config", "e_wallet.transaction_service", "e_wallet" +
+		".fraud_detection_service", "e_wallet.wallet_service"})
 @EntityScan(basePackages = "org.example.entity")
 public class TransactionServiceApplication {
 

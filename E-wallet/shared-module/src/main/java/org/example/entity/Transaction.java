@@ -32,8 +32,7 @@ public class Transaction {
     @Column(name = "amount")
     private BigDecimal amount;
 
-    @CreationTimestamp
-    @Column(name = "transaction_date", updatable = false)
+    @Column(name = "transaction_date")
     private Instant transaction_date;
 
     @Column(name = "transaction_type")
