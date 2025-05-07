@@ -73,12 +73,12 @@ public class TransactionService {
 
 //        boolean isFraud = clientIP != null;
         Transaction saved = transactionRepository.save(transaction);
-        boolean isFraud = fraudService.checkForFraud(transaction);
+//        boolean isFraud = fraudService.checkForFraud(transaction);
         //Kiểm trả kết quả trả về
-        if (isFraud) {
-            String message = notificationService.sendNotification(sender.getUserId().toString(), transaction.getTransactionId().toString());
-            throw new FraudDetectedException(message);
-        }
+//        if (isFraud) {
+//            String message = notificationService.sendNotification(sender.getUserId().toString(), transaction.getTransactionId().toString());
+//            throw new FraudDetectedException(message);
+//        }
 
         // Gọi API ví để rút tiền
         WalletDTO senderResult = withdraw(transactionReq.getSender_id(), transactionReq.getAmount());
