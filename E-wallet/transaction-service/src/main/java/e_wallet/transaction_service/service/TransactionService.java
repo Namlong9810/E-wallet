@@ -73,12 +73,13 @@ public class TransactionService {
 
 //        boolean isFraud = clientIP != null;
         Transaction saved = transactionRepository.save(transaction);
-//        boolean isFraud = fraudService.checkForFraud(transaction);
-        //Kiểm trả kết quả trả về
-//        if (isFraud) {
-//            String message = notificationService.sendNotification(sender.getUserId().toString(), transaction.getTransactionId().toString());
-//            throw new FraudDetectedException(message);
-//        }
+        boolean isFraud = fraudService.checkForFraud(transaction);
+
+//        Kiểm trả kết quả trả về
+        if (isFraud) {
+            String message = notificationService.sendNotification(sender.getUserId().toString(), transaction.getTransactionId().toString());
+            throw new FraudDetectedException(message);
+        }
 
         // Gọi API ví để rút tiền
         WalletDTO senderResult = withdraw(transactionReq.getSender_id(), transactionReq.getAmount());
@@ -103,11 +104,8 @@ public class TransactionService {
 
     private void validateTransfer(TransactionReq transactionReq) {
         if (transactionReq.getSender_id().equals(transactionReq.getReceiver_id())) {
-            throw new RuntimeException("Wallet Sender and receiver cannot be the same");
+            throw new RuntimeException("Wallet id không trùng nhau");
         }
-
-        // NOTE: Nếu không có DB riêng để kiểm tra, bạn có thể gọi API khác bên WalletService
-        // để kiểm tra số dư trước khi gọi withdraw
     }
 
     private String getClientIp(HttpServletRequest request) {

@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Value;
 @Service
 public class FraudService {
 
-    @Value("http://10.242.30.53:5000") // URL API Python (Flask)
+    @Value("http://192.168.1.15:5000") // URL API Python (Flask)
     private String fraudApiUrl;
 
     private final RestTemplate restTemplate;
@@ -21,7 +21,7 @@ public class FraudService {
     }
 
     public boolean checkForFraud(Transaction transaction) {
-        // Chuyển đổi dữ liệu của transaction thành request payload
+        // Tạo request payload đưa sang api python
         FraudRequest request = new FraudRequest();
         request.setTransactionId(transaction.getTransactionId());
         request.setUserId(transaction.getUserId());
@@ -35,7 +35,6 @@ public class FraudService {
         request.setPrevious_transaction_date(transaction.getPrevious_transaction_date());
         request.setBalance(transaction.getBalance());
 
-        // Thêm các đặc trưng khác nếu cần từ transaction
 
         // Gửi dữ liệu đến API Python
         HttpHeaders headers = new HttpHeaders();
@@ -52,11 +51,11 @@ public class FraudService {
             if (response.getStatusCode() == HttpStatus.OK && response.getBody() != null) {
                 return response.getBody().getIsFraud() == 1;
             } else {
-                // Log an error or handle the case when API does not return a valid response
+                // Log lỗi response
                 throw new IllegalStateException("API response is invalid or not OK");
             }
         } catch (Exception e) {
-            // Log exception and handle errors (e.g., network issues, timeout, etc.)
+            // Lỗi khác
             throw new RuntimeException("Error calling fraud detection service", e);
         }
     }
