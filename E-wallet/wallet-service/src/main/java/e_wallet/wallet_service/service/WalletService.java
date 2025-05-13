@@ -6,17 +6,21 @@ import org.apache.coyote.BadRequestException;
 import org.example.dto.req.CreateWalletDTO;
 import org.example.dto.res.WalletDTO;
 import org.example.entity.Wallet;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
 public class WalletService {
     @Autowired
     WalletRepository walletRepository;
+    ModelMapper modelMapper;
 
     public void createWallet(CreateWalletDTO createWalletDTO){
         Wallet wallet = Wallet.builder()
@@ -68,5 +72,12 @@ public class WalletService {
         dto.setBalance(updatedWallet.getBalance());
 
         return dto;
+    }
+
+    public List<WalletDTO> getListWalletByUserId(String userId){
+        List<Wallet> listWallet = walletRepository.findAllByUserId(UUID.fromString(userId));
+        return listWallet.stream()
+                .map(data -> modelMapper.map(data, WalletDTO.class))
+                .collect(Collectors.toList());
     }
 }

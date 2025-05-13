@@ -20,5 +20,5 @@ public interface TransactionRepository extends JpaRepository<Transaction, UUID> 
             " AND t.transaction_date >= :time ")
     Integer countTransactionIn5minByUserId(@Param("userId") UUID userId, @Param("time") Instant period);
 
-    List<Transaction> findAllByWalletId(UUID sender_id);
+    List<Transaction> findAllByWalletId(UUID wallet_id);
 }

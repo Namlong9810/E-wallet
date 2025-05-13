@@ -10,6 +10,7 @@ import org.example.entity.Transaction;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 
 @RestController
@@ -30,7 +31,7 @@ public class TransactionController {
     }
 
     @GetMapping("list")
-    public List<Transaction> getListTransactionById(@RequestBody TransactionReq transactionReq){
-        return transactionService.getListTransactionById(transactionReq.getSender_id());
+    public List<Transaction> getListTransactionById(@RequestParam String wallet_id){
+        return transactionService.getListTransactionById(UUID.fromString(wallet_id));
     }
 }

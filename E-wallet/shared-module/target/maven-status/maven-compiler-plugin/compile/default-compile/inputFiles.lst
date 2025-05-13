@@ -1,0 +1,13 @@
+D:\java-mini-project\Sub\E-wallet\shared-module\src\main\java\org\example\entity\Wallet.java
+D:\java-mini-project\Sub\E-wallet\shared-module\src\main\java\org\example\entity\Transaction.java
+D:\java-mini-project\Sub\E-wallet\shared-module\src\main\java\org\example\entity\TransactionType.java
+D:\java-mini-project\Sub\E-wallet\shared-module\src\main\java\org\example\dto\res\FraudResponse.java
+D:\java-mini-project\Sub\E-wallet\shared-module\src\main\java\org\example\dto\req\FraudRequest.java
+D:\java-mini-project\Sub\E-wallet\shared-module\src\main\java\org\example\dto\req\TransactionReq.java
+D:\java-mini-project\Sub\E-wallet\shared-module\src\main\java\org\example\dto\res\Notification.java
+D:\java-mini-project\Sub\E-wallet\shared-module\src\main\java\org\example\config\ResTemplateConfig.java
+D:\java-mini-project\Sub\E-wallet\shared-module\src\main\java\org\example\dto\req\CreateWalletDTO.java
+D:\java-mini-project\Sub\E-wallet\shared-module\src\main\java\org\example\Main.java
+D:\java-mini-project\Sub\E-wallet\shared-module\src\main\java\org\example\dto\req\WalletReq.java
+D:\java-mini-project\Sub\E-wallet\shared-module\src\main\java\org\example\dto\res\WalletDTO.java
+D:\java-mini-project\Sub\E-wallet\shared-module\src\main\java\org\example\dto\res\common\ResponseObject.java

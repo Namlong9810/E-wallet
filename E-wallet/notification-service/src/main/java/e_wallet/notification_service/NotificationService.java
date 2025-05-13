@@ -15,6 +15,6 @@ import java.time.LocalDateTime;
 public class NotificationService {
 
     public String sendNotification(String userId, String transactionId) {
-        return String.format("Giao dịch %s cho người dùng %s bị đánh giá là gian lận", transactionId, userId);
+        return "Giao dịch này bị đánh giá là gian lận. Vui lòng kiểm tra lại.";
     }
 }

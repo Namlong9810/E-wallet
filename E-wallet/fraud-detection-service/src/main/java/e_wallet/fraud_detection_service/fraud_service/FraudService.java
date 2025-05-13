@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Value;
 @Service
 public class FraudService {
 
-    @Value("http://192.168.1.15:5000") // URL API Python (Flask)
+    @Value("http://10.242.30.53:5000") // URL API Python (Flask)
     private String fraudApiUrl;
 
     private final RestTemplate restTemplate;

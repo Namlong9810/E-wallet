@@ -7,6 +7,8 @@ import org.example.dto.req.WalletReq;
 import org.example.dto.res.WalletDTO;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("user/wallet")
 @RequiredArgsConstructor
@@ -27,5 +29,10 @@ public class WalletController {
     @PutMapping("withdraw")
     public WalletDTO withdraw(@RequestBody WalletReq walletReq){
         return walletService.withdraw(walletReq.getWallet_id(), walletReq.getAmount());
+    }
+
+    @GetMapping("list")
+    public List<WalletDTO> getListWalletByUserId(@RequestParam String userId){
+        return walletService.getListWalletByUserId(userId);
     }
 }

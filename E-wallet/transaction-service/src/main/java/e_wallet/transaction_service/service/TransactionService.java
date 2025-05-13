@@ -98,8 +98,8 @@ public class TransactionService {
         return transactionRepository.findById(sender_id).orElseThrow(()-> new IllegalArgumentException("Không tìm thấy mã ví"));
     }
 
-    public List<Transaction> getListTransactionById(UUID sender_id){
-        return transactionRepository.findAllByWalletId(sender_id);
+    public List<Transaction> getListTransactionById(UUID wallet_id){
+        return transactionRepository.findAllByWalletId(wallet_id);
     }
 
     private void validateTransfer(TransactionReq transactionReq) {
