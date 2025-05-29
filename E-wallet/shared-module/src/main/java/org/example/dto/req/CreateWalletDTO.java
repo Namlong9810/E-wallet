@@ -12,5 +12,6 @@ import java.util.UUID;
 @Data
 public class CreateWalletDTO {
     private UUID user_id;
+    private String walletName;
     private BigDecimal balance;
 }

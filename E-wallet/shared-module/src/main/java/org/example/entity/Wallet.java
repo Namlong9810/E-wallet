@@ -25,6 +25,9 @@ public class Wallet {
     @Column(name = "user_id", nullable = false)
     UUID userId;
 
+    @Column(name = "wallet_name")
+    String walletName;
+
     @Column(name = "balance")
     BigDecimal balance;
 

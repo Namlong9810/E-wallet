@@ -4,6 +4,7 @@ import e_wallet.fraud_detection_service.fraud_service.FraudService;
 import e_wallet.notification_service.NotificationService;
 import e_wallet.transaction_service.exception.FraudDetectedException;
 import e_wallet.transaction_service.repository.TransactionRepository;
+import e_wallet.transaction_service.utils.IpGenerator;
 import e_wallet.wallet_service.repository.WalletRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
@@ -45,7 +46,7 @@ public class TransactionService {
         Wallet sender = walletRepository.findById(transactionReq.getSender_id()).orElseThrow(()-> new IllegalArgumentException("Không tìm thấy " +
                 "senderId"));
 
-        walletRepository.findById(transactionReq.getReceiver_id()).orElseThrow(() -> new IllegalArgumentException("Không tìm " +
+        Wallet receiver = walletRepository.findById(transactionReq.getReceiver_id()).orElseThrow(() -> new IllegalArgumentException("Không tìm " +
                 "thấy receiverId"));
 
         // Lấy địa chỉ IP
@@ -57,27 +58,42 @@ public class TransactionService {
         Integer frequency = transactionRepository.countTransactionIn5minByUserId(sender.getUserId(), periodTime);
 
         BigDecimal transactionDuration = BigDecimal.valueOf(Duration.between(start, Instant.now()).toSecondsPart());
-        // Tạo bản ghi transaction
-        Transaction transaction = Transaction.builder()
+        // Tạo bản ghi transaction phía người gửi
+        Transaction transactionSender = Transaction.builder()
                 .userId(sender.getUserId())
                 .walletId(sender.getWalletId())
                 .amount(transactionReq.getAmount())
                 .transaction_date(Instant.now())
                 .transaction_type(TransactionType.DEBIT)
                 .ip_address(clientIP)
+//                .ip_address(IpGenerator.generateRandomIp())
                 .frequency(frequency)
                 .transaction_duration(transactionDuration)
                 .balance(sender.getBalance())
                 .previous_transaction_date(previousTransactionDate)
                 .build();
+        // Tạo bản ghi transaction phía người nhận
+        Transaction transactionReceiver = Transaction.builder()
+                .userId(receiver.getUserId())
+                .walletId(receiver.getWalletId())
+                .amount(transactionReq.getAmount())
+                .transaction_date(Instant.now())
+                .transaction_type(TransactionType.CREDIT)
+                .ip_address(null)
+                .frequency(null)
+                .transaction_duration(transactionDuration)
+                .balance(receiver.getBalance())
+                .previous_transaction_date(null)
+                .build();
 
 //        boolean isFraud = clientIP != null;
-        Transaction saved = transactionRepository.save(transaction);
-        boolean isFraud = fraudService.checkForFraud(transaction);
+        Transaction savedSender = transactionRepository.save(transactionSender);
+        Transaction savedReceiver = transactionRepository.save(transactionReceiver);
+        boolean isFraud = fraudService.checkForFraud(transactionSender);
 
 //        Kiểm trả kết quả trả về
         if (isFraud) {
-            String message = notificationService.sendNotification(sender.getUserId().toString(), transaction.getTransactionId().toString());
+            String message = notificationService.sendNotification(sender.getUserId().toString(), transactionSender.getTransactionId().toString());
             throw new FraudDetectedException(message);
         }
 
@@ -92,6 +108,42 @@ public class TransactionService {
         }
 
         return new ResponseObject<Transaction>("Khởi tạo giao dịch thành công", HttpStatus.OK.value(), LocalDateTime.now());
+    }
+
+    @Transactional
+    public ResponseObject<Transaction> createDepositTransaction(TransactionReq transactionReq, HttpServletRequest httpServletRequest){
+        Instant start = Instant.now();
+        Wallet wallet = walletRepository.findById(transactionReq.getSender_id()).orElseThrow(() -> new IllegalArgumentException("Không tìm thấy ví"));
+
+
+        //Lấy duration
+        BigDecimal transactionDuration = BigDecimal.valueOf(Duration.between(start, Instant.now()).toSecondsPart());
+
+        // Lấy PrevTransactionDate
+        Instant previousTransactionDate = transactionRepository.findPreviousTransactionDate(wallet.getUserId(), wallet.getWalletId());
+
+        Transaction transaction = Transaction.builder()
+                .userId(wallet.getUserId())
+                .walletId(wallet.getWalletId())
+                .amount(transactionReq.getAmount())
+                .transaction_date(Instant.now())
+                .transaction_type(TransactionType.CREDIT)
+                .ip_address(getClientIp(httpServletRequest))
+                .frequency(null)
+                .transaction_duration(transactionDuration)
+                .previous_transaction_date(previousTransactionDate)
+                .balance(wallet.getBalance())
+                .build();
+
+        Transaction result = transactionRepository.save(transaction);
+
+        //Gọi api nạp tiền vào ví
+        WalletDTO walletDepositStatus =  this.deposit(wallet.getWalletId(), transactionReq.getAmount());
+        if (walletDepositStatus == null){
+            throw new IllegalArgumentException("Đã xảy ra lỗi trong quá trình thực hiện giao dịch");
+        }
+        
+        return new ResponseObject<Transaction>("Tạo mới giao dịch thành công", HttpStatus.OK.value(), LocalDateTime.now(), result);
     }
 
     public Transaction getInforTransaction(UUID sender_id){

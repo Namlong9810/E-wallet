@@ -25,6 +25,7 @@ public class WalletService {
     public void createWallet(CreateWalletDTO createWalletDTO){
         Wallet wallet = Wallet.builder()
                 .userId(createWalletDTO.getUser_id())
+                .walletName(createWalletDTO.getWalletName())
                 .balance(createWalletDTO.getBalance())
                 .build();
         walletRepository.save(wallet);
@@ -44,6 +45,7 @@ public class WalletService {
         WalletDTO dto = new WalletDTO();
         dto.setWalletId(updatedWallet.getWalletId());
         dto.setUserId(updatedWallet.getUserId());
+        dto.setWalletName(updatedWallet.getWalletName());
         dto.setBalance(updatedWallet.getBalance());
 
         return dto;
@@ -69,6 +71,7 @@ public class WalletService {
         WalletDTO dto = new WalletDTO();
         dto.setWalletId(updatedWallet.getWalletId());
         dto.setUserId(updatedWallet.getUserId());
+        dto.setWalletName(updatedWallet.getWalletName());
         dto.setBalance(updatedWallet.getBalance());
 
         return dto;

@@ -11,18 +11,13 @@ import java.util.UUID;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
-@Builder
+@Data
 public class WalletDTO {
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "wallet_id", unique = true)
     UUID walletId;
 
-    @Column(name = "user_id", nullable = false)
     UUID userId;
 
-    @Column(name = "balance")
+    String walletName;
+
     BigDecimal balance;
 }

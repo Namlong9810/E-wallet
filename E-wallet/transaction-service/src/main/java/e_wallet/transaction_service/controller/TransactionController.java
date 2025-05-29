@@ -24,7 +24,10 @@ public class TransactionController {
         return transactionService.createTransaction(transactionReq, httpServletRequest);
     }
 
-
+    @PostMapping("create/deposit")
+    public ResponseObject<Transaction> createDepositTransaction(@RequestBody TransactionReq transactionReq, HttpServletRequest httpServletRequest){
+        return transactionService.createDepositTransaction(transactionReq, httpServletRequest);
+    }
     @GetMapping("infor")
     public Transaction getInforTransaction(@RequestBody TransactionReq transactionReq){
         return transactionService.getInforTransaction(transactionReq.getSender_id());
