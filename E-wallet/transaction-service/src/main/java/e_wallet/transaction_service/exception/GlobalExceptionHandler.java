@@ -1,6 +1,6 @@
 package e_wallet.transaction_service.exception;
 
-import org.example.dto.res.common.ResponseObject;
+import e_wallet.dto.res.common.ResponseObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

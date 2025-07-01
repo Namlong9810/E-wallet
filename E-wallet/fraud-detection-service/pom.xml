@@ -83,7 +83,7 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.example</groupId>
+			<groupId>e-wallet</groupId>
 			<artifactId>shared-module</artifactId>
 			<version>1.0-SNAPSHOT</version>
 		</dependency>

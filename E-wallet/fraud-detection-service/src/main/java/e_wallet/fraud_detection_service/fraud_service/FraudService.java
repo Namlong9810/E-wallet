@@ -1,8 +1,8 @@
 package e_wallet.fraud_detection_service.fraud_service;
 
-import org.example.dto.req.FraudRequest;
-import org.example.dto.res.FraudResponse;
-import org.example.entity.Transaction;
+import e_wallet.dto.req.FraudRequest;
+import e_wallet.dto.res.FraudResponse;
+import e_wallet.entity.Transaction;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.http.*;
@@ -31,7 +31,6 @@ public class FraudService {
         request.setTransaction_type(transaction.getTransaction_type());
         request.setIp_address(transaction.getIp_address());
         request.setFrequency(transaction.getFrequency());
-        request.setTransaction_duration(transaction.getTransaction_duration());
         request.setPrevious_transaction_date(transaction.getPrevious_transaction_date());
         request.setBalance(transaction.getBalance());
 

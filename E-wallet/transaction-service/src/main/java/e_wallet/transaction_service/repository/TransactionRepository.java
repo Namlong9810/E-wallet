@@ -1,7 +1,7 @@
 package e_wallet.transaction_service.repository;
 
 
-import org.example.entity.Transaction;
+import e_wallet.entity.Transaction;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

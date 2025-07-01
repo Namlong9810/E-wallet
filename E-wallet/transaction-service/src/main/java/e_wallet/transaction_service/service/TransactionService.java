@@ -4,17 +4,16 @@ import e_wallet.fraud_detection_service.fraud_service.FraudService;
 import e_wallet.notification_service.NotificationService;
 import e_wallet.transaction_service.exception.FraudDetectedException;
 import e_wallet.transaction_service.repository.TransactionRepository;
-import e_wallet.transaction_service.utils.IpGenerator;
 import e_wallet.wallet_service.repository.WalletRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
-import org.example.dto.req.TransactionReq;
-import org.example.dto.req.WalletReq;
-import org.example.dto.res.WalletDTO;
-import org.example.dto.res.common.ResponseObject;
-import org.example.entity.Transaction;
-import org.example.entity.TransactionType;
-import org.example.entity.Wallet;
+import e_wallet.dto.req.TransactionReq;
+import e_wallet.dto.req.WalletReq;
+import e_wallet.dto.res.WalletDTO;
+import e_wallet.dto.res.common.ResponseObject;
+import e_wallet.entity.Transaction;
+import e_wallet.entity.TransactionType;
+import e_wallet.entity.Wallet;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -33,7 +32,7 @@ public class TransactionService {
 
     private final RestTemplate restTemplate;
     private final TransactionRepository transactionRepository;
-    private final WalletRepository walletRepository;
+    private final WalletRepository  walletRepository;
     private final FraudService fraudService;
     private final NotificationService notificationService;
 
@@ -57,7 +56,6 @@ public class TransactionService {
         Instant periodTime = Instant.now().minus(Duration.ofMinutes(5));
         Integer frequency = transactionRepository.countTransactionIn5minByUserId(sender.getUserId(), periodTime);
 
-        BigDecimal transactionDuration = BigDecimal.valueOf(Duration.between(start, Instant.now()).toSecondsPart());
         // Tạo bản ghi transaction phía người gửi
         Transaction transactionSender = Transaction.builder()
                 .userId(sender.getUserId())
@@ -68,7 +66,6 @@ public class TransactionService {
                 .ip_address(clientIP)
 //                .ip_address(IpGenerator.generateRandomIp())
                 .frequency(frequency)
-                .transaction_duration(transactionDuration)
                 .balance(sender.getBalance())
                 .previous_transaction_date(previousTransactionDate)
                 .build();
@@ -81,7 +78,6 @@ public class TransactionService {
                 .transaction_type(TransactionType.CREDIT)
                 .ip_address(null)
                 .frequency(null)
-                .transaction_duration(transactionDuration)
                 .balance(receiver.getBalance())
                 .previous_transaction_date(null)
                 .build();
@@ -130,7 +126,6 @@ public class TransactionService {
                 .transaction_type(TransactionType.CREDIT)
                 .ip_address(getClientIp(httpServletRequest))
                 .frequency(null)
-                .transaction_duration(transactionDuration)
                 .previous_transaction_date(previousTransactionDate)
                 .balance(wallet.getBalance())
                 .build();

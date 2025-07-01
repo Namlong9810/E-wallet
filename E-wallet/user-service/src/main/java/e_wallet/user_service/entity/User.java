@@ -2,6 +2,7 @@ package e_wallet.user_service.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
@@ -14,6 +15,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@Builder
 @Entity
 @Table(name = "users")
 public class User {
@@ -27,6 +29,9 @@ public class User {
 
     @Column(name = "email",  unique = true)
     private String email;
+
+    @Column(name = "password")
+    private String password;
 
     @Column(name = "address")
     private String address;

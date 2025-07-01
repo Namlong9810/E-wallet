@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f3d6f95f-6269-4c3a-90d9-5f9e354223e0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/shared-module/src/main/java/e_wallet/dto/req/RegisterDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/E-wallet.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/e_wallet/auth_service/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/e_wallet/auth_service/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/e_wallet/auth_service/AuthServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/e_wallet/auth_service/AuthServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/e_wallet/auth_service/dto/req/CreateWalletDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fraud-detection-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/fraud-detection-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fraud-detection-service/src/main/java/e_wallet/fraud_detection_service/FraudDetectionServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/fraud-detection-service/src/main/java/e_wallet/fraud_detection_service/FraudDetectionServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fraud-detection-service/src/main/java/e_wallet/fraud_detection_service/fraud_service/FraudService.java" beforeDir="false" afterPath="$PROJECT_DIR$/fraud-detection-service/src/main/java/e_wallet/fraud_detection_service/fraud_service/FraudService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-service/src/main/java/e_wallet/notification_service/NotificationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/e_wallet/notification_service/NotificationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared-module/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/shared-module/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared-module/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared-module/src/main/java/e_wallet/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared-module/src/main/java/org/example/config/ResTemplateConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared-module/src/main/java/e_wallet/config/ResTemplateConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared-module/src/main/java/org/example/dto/req/CreateWalletDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared-module/src/main/java/e_wallet/dto/req/CreateWalletDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared-module/src/main/java/org/example/dto/req/FraudRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared-module/src/main/java/e_wallet/dto/req/FraudRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared-module/src/main/java/org/example/dto/req/TransactionReq.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared-module/src/main/java/e_wallet/dto/req/TransactionReq.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared-module/src/main/java/org/example/dto/req/WalletReq.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared-module/src/main/java/e_wallet/dto/req/WalletReq.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared-module/src/main/java/org/example/dto/res/FraudResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared-module/src/main/java/e_wallet/dto/res/FraudResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared-module/src/main/java/org/example/dto/res/Notification.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared-module/src/main/java/e_wallet/dto/res/Notification.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared-module/src/main/java/org/example/dto/res/WalletDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared-module/src/main/java/e_wallet/dto/res/WalletDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared-module/src/main/java/org/example/dto/res/common/ResponseObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared-module/src/main/java/e_wallet/dto/res/common/ResponseObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared-module/src/main/java/org/example/entity/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared-module/src/main/java/e_wallet/entity/Transaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared-module/src/main/java/org/example/entity/TransactionType.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared-module/src/main/java/e_wallet/entity/TransactionType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared-module/src/main/java/org/example/entity/Wallet.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared-module/src/main/java/e_wallet/entity/Wallet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared-module/target/classes/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared-module/target/classes/org/example/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared-module/target/classes/org/example/config/ResTemplateConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared-module/target/classes/org/example/dto/req/CreateWalletDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared-module/target/classes/org/example/dto/req/FraudRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared-module/target/classes/org/example/dto/req/TransactionReq$TransactionReqBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared-module/target/classes/org/example/dto/req/TransactionReq.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared-module/target/classes/org/example/dto/req/WalletReq$WalletReqBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared-module/target/classes/org/example/dto/req/WalletReq.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared-module/target/classes/org/example/dto/res/FraudResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared-module/target/classes/org/example/dto/res/Notification.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared-module/target/classes/org/example/dto/res/WalletDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared-module/target/classes/org/example/dto/res/common/ResponseObject.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared-module/target/classes/org/example/entity/Transaction$TransactionBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared-module/target/classes/org/example/entity/Transaction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared-module/target/classes/org/example/entity/TransactionType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared-module/target/classes/org/example/entity/Wallet$WalletBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared-module/target/classes/org/example/entity/Wallet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared-module/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared-module/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared-module/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared-module/target/shared-module-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/transaction-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/transaction-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/transaction-service/src/main/java/e_wallet/transaction_service/TransactionServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/transaction-service/src/main/java/e_wallet/transaction_service/TransactionServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/transaction-service/src/main/java/e_wallet/transaction_service/controller/TransactionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/transaction-service/src/main/java/e_wallet/transaction_service/controller/TransactionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/transaction-service/src/main/java/e_wallet/transaction_service/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/transaction-service/src/main/java/e_wallet/transaction_service/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/transaction-service/src/main/java/e_wallet/transaction_service/repository/TransactionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/transaction-service/src/main/java/e_wallet/transaction_service/repository/TransactionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/transaction-service/src/main/java/e_wallet/transaction_service/service/TransactionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/transaction-service/src/main/java/e_wallet/transaction_service/service/TransactionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/transaction-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/transaction-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/docker-compose.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/e_wallet/user_service/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/e_wallet/user_service/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wallet-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/wallet-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wallet-service/src/main/java/e_wallet/wallet_service/WalletServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/wallet-service/src/main/java/e_wallet/wallet_service/WalletServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wallet-service/src/main/java/e_wallet/wallet_service/controller/WalletController.java" beforeDir="false" afterPath="$PROJECT_DIR$/wallet-service/src/main/java/e_wallet/wallet_service/controller/WalletController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wallet-service/src/main/java/e_wallet/wallet_service/repository/WalletRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/wallet-service/src/main/java/e_wallet/wallet_service/repository/WalletRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wallet-service/src/main/java/e_wallet/wallet_service/service/WalletService.java" beforeDir="false" afterPath="$PROJECT_DIR$/wallet-service/src/main/java/e_wallet/wallet_service/service/WalletService.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitLabMergeRequestFiltersHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPENED&quot;,
+    &quot;assignee&quot;: {
+      &quot;type&quot;: &quot;org.jetbrains.plugins.gitlab.mergerequest.ui.filters.GitLabMergeRequestsFiltersValue.MergeRequestsMemberFilterValue.MergeRequestsAssigneeFilterValue&quot;,
+      &quot;username&quot;: &quot;namhm&quot;,
+      &quot;fullname&quot;: &quot;Ho Manh Nam&quot;
+    }
+  }
+}</component>
+  <component name="GitLabMergeRequestsSettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;first&quot;: &quot;https://git.icetea-software.com/its-glyph_cex/cex_be/admin.git&quot;,
+    &quot;second&quot;: &quot;cfd8ab70-2308-4f20-89f4-d038067d7180&quot;
+  }
+}</component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2unHOn163vbJb1c2bQSLl1ehlt2" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Auth.executor": "Run",
+    "Application.Transaction.executor": "Run",
+    "Application.User.executor": "Run",
+    "Application.Wallet.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/java-mini-project/Sub/E-wallet",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\java-mini-project\Sub\E-wallet\wallet-service\src\main\java\e_wallet\wallet_service" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\java-mini-project\Sub\E-wallet\shared-module\target" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Auth">
+    <configuration name="Auth" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="e_wallet.auth_service.AuthServiceApplication" />
+      <module name="auth-service" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Transaction" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="e_wallet.transaction_service.TransactionServiceApplication" />
+      <module name="transaction-service" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="User" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="e_wallet.user_service.UserServiceApplication" />
+      <module name="user-service" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Wallet" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="e_wallet.wallet_service.WalletServiceApplication" />
+      <module name="wallet-service" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Auth" />
+      <item itemvalue="Application.User" />
+      <item itemvalue="Application.Wallet" />
+      <item itemvalue="Application.Transaction" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f3d6f95f-6269-4c3a-90d9-5f9e354223e0" name="Changes" comment="" />
+      <created>1742877390034</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1742877390034</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/notification-service/src/main/java/e_wallet/notification_service/NotificationService.java</url>
+          <line>8</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/user-service/src/main/java/e_wallet/user_service/service/UserService.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
