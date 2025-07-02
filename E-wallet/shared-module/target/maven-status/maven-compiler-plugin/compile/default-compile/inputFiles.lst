@@ -10,4 +10,5 @@ D:\java-mini-project\Sub\E-wallet\shared-module\src\main\java\e_wallet\dto\req\T
 D:\java-mini-project\Sub\E-wallet\shared-module\src\main\java\e_wallet\dto\res\Notification.java
 D:\java-mini-project\Sub\E-wallet\shared-module\src\main\java\e_wallet\entity\Transaction.java
 D:\java-mini-project\Sub\E-wallet\shared-module\src\main\java\e_wallet\dto\res\FraudResponse.java
+D:\java-mini-project\Sub\E-wallet\shared-module\src\main\java\e_wallet\dto\req\RegisterDTO.java
 D:\java-mini-project\Sub\E-wallet\shared-module\src\main\java\e_wallet\dto\res\common\ResponseObject.java

@@ -8,6 +8,7 @@ e_wallet\config\ResTemplateConfig.class
 e_wallet\dto\res\FraudResponse.class
 e_wallet\dto\req\WalletReq$WalletReqBuilder.class
 e_wallet\entity\Transaction.class
+e_wallet\dto\req\RegisterDTO.class
 e_wallet\dto\req\TransactionReq.class
 e_wallet\dto\res\Notification.class
 e_wallet\dto\req\FraudRequest.class
