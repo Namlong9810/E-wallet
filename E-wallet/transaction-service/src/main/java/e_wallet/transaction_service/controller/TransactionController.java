@@ -4,9 +4,9 @@ package e_wallet.transaction_service.controller;
 import e_wallet.transaction_service.service.TransactionService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
-import e_wallet.dto.req.TransactionReq;
-import e_wallet.dto.res.common.ResponseObject;
-import e_wallet.entity.Transaction;
+import e_wallet.shared_module.dto.req.TransactionReq;
+import e_wallet.shared_module.dto.res.common.ResponseObject;
+import e_wallet.shared_module.entity.Transaction;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

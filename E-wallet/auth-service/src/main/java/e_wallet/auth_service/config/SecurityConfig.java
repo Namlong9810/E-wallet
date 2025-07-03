@@ -1,8 +1,11 @@
 package e_wallet.auth_service.config;
 
+import e_wallet.shared_module.adapter.UserDetailsServiceAdapter;
+import e_wallet.shared_module.config.JwtFilter;
+import e_wallet.shared_module.config.JwtTokenProvider;
+import e_wallet.shared_module.config.PasswordEncodeConfig;
 import e_wallet.user_service.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -11,7 +14,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
@@ -19,15 +21,14 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 @RequiredArgsConstructor
 public class SecurityConfig {
-    @Autowired
-    private JwtFilter jwtFilter;
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-    @Autowired
-    private UserService userService;
+    private final PasswordEncodeConfig passwordEncodeConfig;
+    private final UserService userService;
+    private final JwtTokenProvider jwt;
+    private final UserDetailsServiceAdapter adapter;
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
+        JwtFilter jwtFilter = new JwtFilter(jwt, adapter);
         return http
                 .csrf(AbstractHttpConfigurer::disable)      //Disable csrf
                 .sessionManagement( session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
@@ -43,8 +44,8 @@ public class SecurityConfig {
     public AuthenticationManager authenticationManager(HttpSecurity http) throws Exception {
         return http.getSharedObject(AuthenticationManagerBuilder.class)
                 .userDetailsService(userService)
-                .passwordEncoder(passwordEncoder)
+                .passwordEncoder(passwordEncodeConfig.passwordEncoder())
+                .and()
                 .build();
     }
-
 }

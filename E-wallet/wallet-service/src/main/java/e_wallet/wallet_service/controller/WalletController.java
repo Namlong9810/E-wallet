@@ -2,9 +2,9 @@ package e_wallet.wallet_service.controller;
 
 import e_wallet.wallet_service.service.WalletService;
 import lombok.RequiredArgsConstructor;
-import e_wallet.dto.req.CreateWalletDTO;
-import e_wallet.dto.req.WalletReq;
-import e_wallet.dto.res.WalletDTO;
+import e_wallet.shared_module.dto.req.CreateWalletDTO;
+import e_wallet.shared_module.dto.req.WalletReq;
+import e_wallet.shared_module.dto.res.WalletDTO;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

@@ -1,8 +1,8 @@
 package e_wallet.fraud_detection_service.fraud_service;
 
-import e_wallet.dto.req.FraudRequest;
-import e_wallet.dto.res.FraudResponse;
-import e_wallet.entity.Transaction;
+import e_wallet.shared_module.dto.req.FraudRequest;
+import e_wallet.shared_module.dto.res.FraudResponse;
+import e_wallet.shared_module.entity.Transaction;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.http.*;

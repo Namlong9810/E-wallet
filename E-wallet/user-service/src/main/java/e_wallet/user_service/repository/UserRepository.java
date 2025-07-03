@@ -1,7 +1,6 @@
 package e_wallet.user_service.repository;
 
-import e_wallet.entity.Wallet;
-import e_wallet.user_service.entity.User;
+import e_wallet.shared_module.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -29,6 +29,11 @@
             <version>3.4.4</version> <!-- Thêm version cho spring-boot-starter-web -->
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+            <version>3.4.4</version>
+        </dependency>
         <!-- JPA and Hibernate Dependencies -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -56,8 +61,25 @@
             <artifactId>postgresql</artifactId>
             <version>42.3.4</version>
         </dependency>
-    </dependencies>
 
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-api</artifactId>
+            <version>0.10.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-impl</artifactId>
+            <version>0.10.0</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-jackson</artifactId>
+            <version>0.10.0</version>
+            <scope>runtime</scope>
+        </dependency>
+</dependencies>
     <build>
         <plugins>
             <!-- Compiler plugin for annotation processing (Lombok) -->
