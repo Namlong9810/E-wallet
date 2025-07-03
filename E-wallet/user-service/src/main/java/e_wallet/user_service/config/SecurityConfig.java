@@ -1,6 +1,8 @@
 package e_wallet.user_service.config;
 
+import e_wallet.shared_module.adapter.UserDetailsServiceAdapter;
 import e_wallet.shared_module.config.JwtFilter;
+import e_wallet.shared_module.config.JwtTokenProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,13 +14,13 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 @Configuration
 @EnableWebSecurity
-@RequiredArgsConstructor
 public class SecurityConfig {
-
-    private final JwtFilter jwtFilter;
+    private JwtTokenProvider jwt;
+    private UserDetailsServiceAdapter adapter;
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
+        JwtFilter jwtFilter = new JwtFilter(jwt, adapter);
         return http
                 .csrf(AbstractHttpConfigurer::disable)      //Disable csrf
                 .authorizeHttpRequests( auth -> auth
