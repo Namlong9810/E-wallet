@@ -9,8 +9,7 @@
       <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/e_wallet/user_service/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/e_wallet/user_service/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wallet-service/src/main/java/e_wallet/wallet_service/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/wallet-service/src/main/java/e_wallet/wallet_service/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/e_wallet/user_service/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/e_wallet/user_service/controller/UserController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +64,7 @@
     "Application.Auth.executor": "Run",
     "Application.Transaction.executor": "Run",
     "Application.User.executor": "Run",
-    "Application.Wallet.executor": "Debug",
+    "Application.Wallet.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -87,7 +86,7 @@
       <recent name="D:\java-mini-project\Sub\E-wallet\shared-module\target" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.User">
+  <component name="RunManager" selected="Application.Wallet">
     <configuration name="Auth" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="e_wallet.auth_service.AuthServiceApplication" />
       <module name="auth-service" />
@@ -166,6 +165,11 @@
           <url>file://$PROJECT_DIR$/shared-module/src/main/java/e_wallet/shared_module/adapter/impl/UserDetailsServiceAdapterImpl.java</url>
           <line>24</line>
           <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/user-service/src/main/java/e_wallet/user_service/controller/UserController.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

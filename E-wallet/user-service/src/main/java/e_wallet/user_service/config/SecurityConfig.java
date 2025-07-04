@@ -24,7 +24,7 @@ public class SecurityConfig {
         return http
                 .csrf(AbstractHttpConfigurer::disable)      //Disable csrf
                 .authorizeHttpRequests( auth -> auth
-                        .anyRequest().authenticated()       //Cho phép gọi toan bo api ma khong can authen
+                        .anyRequest().permitAll()       //Cho phép gọi toan bo api ma khong can authen
                 )
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
