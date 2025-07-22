@@ -3,6 +3,7 @@ package e_wallet.wallet_service.config;
 import e_wallet.shared_module.adapter.UserDetailsServiceAdapter;
 import e_wallet.shared_module.config.JwtFilter;
 import e_wallet.shared_module.config.JwtTokenProvider;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -18,21 +19,21 @@ import java.util.List;
 
 @Configuration("walletSecurityConfig")
 @EnableWebSecurity
+@RequiredArgsConstructor
 public class SecurityConfig {
-    private JwtTokenProvider jwt;
-    private UserDetailsServiceAdapter adapter;
+    private final JwtTokenProvider jwt;
+    private final UserDetailsServiceAdapter adapter;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        JwtFilter jwtFilter = new JwtFilter(jwt, adapter);
         http
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .csrf(AbstractHttpConfigurer::disable) // disable CSRF
                 .authorizeHttpRequests( auth -> auth
 //                    .requestMatchers("user/transaction/**").authenticated()
-                    .anyRequest().authenticated()
+                    .anyRequest().permitAll()
                 )
-                .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(jwtFilter(), UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
 
@@ -47,5 +48,10 @@ public class SecurityConfig {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);
         return source;
+    }
+
+    @Bean
+    public  JwtFilter jwtFilter() {
+        return  new JwtFilter(jwt, adapter);
     }
 }

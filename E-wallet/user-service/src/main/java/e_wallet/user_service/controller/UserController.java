@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.UUID;
+
 @RestController
 @RequestMapping("/user")
 @RequiredArgsConstructor
@@ -30,6 +32,18 @@ public class UserController {
         );
 
         return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/user_id/{user_id}")
+    public ResponseEntity<?> findUserByUserId(@PathVariable String user_id) {
+        UUID id = UUID.fromString(user_id);
+        User user = (User) userService.findUserByUserID(id);
+
+        if (user == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        return ResponseEntity.ok(user);
     }
 }
 

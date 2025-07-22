@@ -10,6 +10,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 @Service
 public class UserService implements UserDetailsService {
     @Autowired
@@ -25,6 +27,11 @@ public class UserService implements UserDetailsService {
                 .build();
 
         userRepository.save(user);
+    }
+
+    public User findUserByUserID(UUID user_id){
+        return userRepository.findById(user_id)
+                .orElseThrow(() -> new RuntimeException("Can not found user"));
     }
 
     @Override

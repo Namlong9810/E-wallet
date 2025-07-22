@@ -8,7 +8,7 @@ import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-@SpringBootApplication(scanBasePackages = {"e_wallet.notification_service", "e_wallet.example.config", "e_wallet.transaction_service", "e_wallet" +
+@SpringBootApplication(scanBasePackages = {"e_wallet.notification_service", "e_wallet.shared_module", "e_wallet.transaction_service", "e_wallet" +
 		".fraud_detection_service", "e_wallet.wallet_service"})
 @EntityScan(basePackages = "e_wallet.entity")
 public class TransactionServiceApplication {

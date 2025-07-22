@@ -1,13 +1,15 @@
 package e_wallet.wallet_service.service;
 
+import e_wallet.user_service.repository.UserRepository;
+import e_wallet.user_service.service.UserService;
 import e_wallet.wallet_service.repository.WalletRepository;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.coyote.BadRequestException;
 import e_wallet.shared_module.dto.req.CreateWalletDTO;
 import e_wallet.shared_module.dto.res.WalletDTO;
 import e_wallet.shared_module.entity.Wallet;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -15,14 +17,19 @@ import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
+@Slf4j
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class WalletService {
-    @Autowired
-    WalletRepository walletRepository;
-    ModelMapper modelMapper;
+    private final WalletRepository walletRepository;
+    private final ModelMapper modelMapper;
+    private final UserService userService;
 
     public void createWallet(CreateWalletDTO createWalletDTO){
+        log.info("==> Validate User ID {}", createWalletDTO.getUser_id());
+        userService.findUserByUserID(createWalletDTO.getUser_id());
+
+        log.info("Create wallet by User ID");
         Wallet wallet = Wallet.builder()
                 .userId(createWalletDTO.getUser_id())
                 .walletName(createWalletDTO.getWalletName())

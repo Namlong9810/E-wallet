@@ -28,7 +28,6 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
-        JwtFilter jwtFilter = new JwtFilter(jwt, adapter);
         return http
                 .csrf(AbstractHttpConfigurer::disable)      //Disable csrf
                 .sessionManagement( session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
@@ -36,7 +35,7 @@ public class SecurityConfig {
                         .requestMatchers("/user/auth/**").permitAll()
                         .anyRequest().authenticated()     //Cho phép gọi toan bo api ma khong can authen
                 )
-                .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
+                .addFilterBefore(jwtFilter(), UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
 
@@ -47,5 +46,10 @@ public class SecurityConfig {
                 .passwordEncoder(passwordEncodeConfig.passwordEncoder())
                 .and()
                 .build();
+    }
+
+    @Bean
+    public JwtFilter jwtFilter() {
+        return new JwtFilter(jwt, adapter);
     }
 }

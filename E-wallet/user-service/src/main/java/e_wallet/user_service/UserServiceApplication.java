@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Import;
 import e_wallet.shared_module.config.PasswordEncodeConfig;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"e_wallet.user_service", "e_wallet.shared_module"})
 @Import(PasswordEncodeConfig.class)
 @EntityScan(basePackages = "e_wallet.shared_module.entity")
 public class UserServiceApplication {

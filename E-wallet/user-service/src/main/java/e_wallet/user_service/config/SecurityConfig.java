@@ -12,21 +12,27 @@ import org.springframework.security.config.annotation.web.configurers.AbstractHt
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-@Configuration
+@Configuration("userSecurityConfig")
 @EnableWebSecurity
+@RequiredArgsConstructor
 public class SecurityConfig {
-    private JwtTokenProvider jwt;
-    private UserDetailsServiceAdapter adapter;
+    private final JwtTokenProvider jwt;
+    private final UserDetailsServiceAdapter adapter;
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
-        JwtFilter jwtFilter = new JwtFilter(jwt, adapter);
         return http
                 .csrf(AbstractHttpConfigurer::disable)      //Disable csrf
                 .authorizeHttpRequests( auth -> auth
-                        .anyRequest().permitAll()       //Cho phép gọi toan bo api ma khong can authen
+                        .requestMatchers("/user/**").permitAll()
+                        .anyRequest().authenticated()       //Cho phép gọi các request nhưng cần auth
                 )
-                .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
+                .addFilterBefore(jwtFilter(), UsernamePasswordAuthenticationFilter.class)
                 .build();
+    }
+
+    @Bean
+    public JwtFilter jwtFilter() {
+        return new JwtFilter(jwt, adapter);
     }
 }

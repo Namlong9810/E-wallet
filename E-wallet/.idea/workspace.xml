@@ -8,8 +8,30 @@
       <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/e_wallet/auth_service/config/JwtFilterConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/e_wallet/auth_service/config/JwtFilterConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/e_wallet/auth_service/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/e_wallet/auth_service/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared-module/src/main/java/e_wallet/shared_module/adapter/impl/UserDetailsServiceAdapterImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared-module/src/main/java/e_wallet/shared_module/adapter/impl/UserDetailsServiceAdapterImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared-module/src/main/java/e_wallet/shared_module/config/JwtFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared-module/src/main/java/e_wallet/shared_module/config/JwtFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared-module/src/main/java/e_wallet/shared_module/config/JwtTokenProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared-module/src/main/java/e_wallet/shared_module/config/JwtTokenProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared-module/src/main/java/e_wallet/shared_module/dto/res/UserResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared-module/src/main/java/e_wallet/shared_module/dto/res/UserResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared-module/target/classes/e_wallet/shared_module/adapter/impl/UserDetailsServiceAdapterImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/shared-module/target/classes/e_wallet/shared_module/adapter/impl/UserDetailsServiceAdapterImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared-module/target/classes/e_wallet/shared_module/config/JwtFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/shared-module/target/classes/e_wallet/shared_module/config/JwtFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared-module/target/classes/e_wallet/shared_module/config/JwtTokenProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/shared-module/target/classes/e_wallet/shared_module/config/JwtTokenProvider.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared-module/target/classes/e_wallet/shared_module/dto/res/UserResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/shared-module/target/classes/e_wallet/shared_module/dto/res/UserResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/transaction-service/src/main/java/e_wallet/transaction_service/TransactionServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/transaction-service/src/main/java/e_wallet/transaction_service/TransactionServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/transaction-service/src/main/java/e_wallet/transaction_service/config/RedisConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/transaction-service/src/main/java/e_wallet/transaction_service/config/RedisConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/transaction-service/src/main/java/e_wallet/transaction_service/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/transaction-service/src/main/java/e_wallet/transaction_service/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/e_wallet/user_service/UserServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/e_wallet/user_service/UserServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/e_wallet/user_service/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/e_wallet/user_service/config/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-service/src/main/java/e_wallet/user_service/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/e_wallet/user_service/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/e_wallet/user_service/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/e_wallet/user_service/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wallet-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/wallet-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wallet-service/src/main/java/e_wallet/wallet_service/WalletServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/wallet-service/src/main/java/e_wallet/wallet_service/WalletServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wallet-service/src/main/java/e_wallet/wallet_service/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/wallet-service/src/main/java/e_wallet/wallet_service/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wallet-service/src/main/java/e_wallet/wallet_service/service/WalletService.java" beforeDir="false" afterPath="$PROJECT_DIR$/wallet-service/src/main/java/e_wallet/wallet_service/service/WalletService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,25 +81,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Auth.executor": "Run",
-    "Application.Transaction.executor": "Run",
-    "Application.User.executor": "Run",
-    "Application.Wallet.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/java-mini-project/Sub/E-wallet",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Auth.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Transaction.executor&quot;: &quot;Run&quot;,
+    &quot;Application.User.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Wallet.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/java-mini-project/Sub/E-wallet&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\java-mini-project\Sub\E-wallet\wallet-service\src\main\java\e_wallet\wallet_service" />
@@ -86,7 +108,7 @@
       <recent name="D:\java-mini-project\Sub\E-wallet\shared-module\target" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Wallet">
+  <component name="RunManager" selected="Application.Auth">
     <configuration name="Auth" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="e_wallet.auth_service.AuthServiceApplication" />
       <module name="auth-service" />
@@ -143,7 +165,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/user-service/src/main/java/e_wallet/user_service/service/UserService.java</url>
-          <line>26</line>
+          <line>28</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -152,24 +174,24 @@
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/shared-module/src/main/java/e_wallet/shared_module/config/JwtFilter.java</url>
-          <line>37</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/shared-module/src/main/java/e_wallet/shared_module/config/JwtFilter.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/shared-module/src/main/java/e_wallet/shared_module/adapter/impl/UserDetailsServiceAdapterImpl.java</url>
-          <line>24</line>
+          <line>28</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/user-service/src/main/java/e_wallet/user_service/controller/UserController.java</url>
-          <line>20</line>
+          <line>14</line>
           <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/shared-module/src/main/java/e_wallet/shared_module/adapter/impl/UserDetailsServiceAdapterImpl.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/wallet-service/src/main/java/e_wallet/wallet_service/service/WalletService.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -15,16 +15,19 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
 
-@Component
-@RequiredArgsConstructor
 public class JwtFilter extends OncePerRequestFilter {
     private final JwtTokenProvider jwtService;
     private final UserDetailsServiceAdapter userDetailsServiceAdapter;
 
+    public JwtFilter(JwtTokenProvider jwtTokenProvider, UserDetailsServiceAdapter userDetailsServiceAdapter) {
+        this.jwtService = jwtTokenProvider;
+        this.userDetailsServiceAdapter = userDetailsServiceAdapter;
+    }
+
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        final String authHeader = request.getHeader("Authentication");
+        final String authHeader = request.getHeader("Authorization");
         final String token;
         final String username;
 
